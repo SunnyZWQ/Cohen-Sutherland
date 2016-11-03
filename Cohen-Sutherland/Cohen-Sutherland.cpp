@@ -45,7 +45,7 @@ GLubyte encode(wcPt2D pt, wcPt2D winMin, wcPt2D winMax) {
 	}
 	if (pt.y < winMin.y) {
 		code = code | winBottomBitCode;
-	}
+	}else
 	if (pt.y > winMax.y) {
 		code = code | winTopBitCode;
 	}
@@ -91,10 +91,10 @@ void lineClipCohSuth(wcPt2D winMin, wcPt2D winMax, wcPt2D p1, wcPt2D p2) {
 			if (inside(code1)) {
 				swapPts(&p1, &p2);
 				swapCodes(&code1, &code2);
-			}else{}
+			}else{/**/}//和上一个if匹配，表明if已经结束
 			if (p2.x != p1.x) {
 				m = (p2.y - p1.y) / (p2.x - p1.x);//GLfloat m
-			}else{}
+			}else{/**/ }
 			if (code1 & winLeftBitCode) {
 				p1.y += (winMin.x - p1.x) * m;
 				p1.x = winMin.x;
@@ -106,23 +106,23 @@ void lineClipCohSuth(wcPt2D winMin, wcPt2D winMax, wcPt2D p1, wcPt2D p2) {
 			else if (code1 & winBottomBitCode) {
 				if (p2.x != p1.x) {
 					p1.x += (winMin.y - p1.y) / m;
-				}else{}
+				}else{/**/ }
 				p1.y = winMin.y;
 			}
 			else if (code1 & winTopBitCode) {
 				if (p2.x != p1.x) {
 					p1.x += (winMax.y - p1.y) / m;
-				}else{}
+				}else{/**/ }
 				p1.y = winMax.y;
-			}
-		}
-	}
+			}else{/**/ }
+		}//else
+	}//while
 	if (plotLine) {
 		glBegin(GL_LINES);
 		glVertex2f(p1.x, p1.y);
 		glVertex2f(p2.x, p2.y);
 		glEnd();
-	}
+	}else{/**/ }
 }
 
 //初始化函数
