@@ -82,8 +82,9 @@ GLubyte encode(wcPt2D pt, wcPt2D winMin, wcPt2D winMax) {
 			code = code | winTopBitCode;
 		}
 	return (code);//此处括号应该为了强调返回的是编码。
-/*PS：书中的代码的风格可读性较差，因为else－if之间使用换行缩进导致想看清if-else之间的匹配比较困难
-并且if在只有一行代码的情况下直接换行,界限模糊，应该加上｛｝使得界限更加明显，尽管这样会多用两行.
+/*PS：书中这部分代码使用的风格可读性较差，因为else－if之间使用换行缩进，导致想看清if-else之间的
+匹配比较困难并且if在只有一行代码的情况下直接换行,界限模糊，应该加上｛｝使得界限更加明显，
+尽管这样会多用两行.
 */
 }
 
