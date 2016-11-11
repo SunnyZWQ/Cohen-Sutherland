@@ -174,9 +174,15 @@ void init(void) {
 //¼üÅÌ½»»¥EnterºÍEsc
 void myKeyBoard(unsigned char key, int x, int y) {
 	wcPt2D winMin = { 100,100 }, winMax = { 300,300 }, p1 = { 50,50 }, p2 = { 500,500 };
+	wcPt2D p3 = { 110,100 }, p4 = { 200,100 };
+	wcPt2D p5 = { 50,100 }, p6 = { 100,150 };
+	wcPt2D p7 = { 120,200 }, p8 = { 240,230 };
 	if (key == 13) {
 		glColor3f(1.0, 0.0, 0.0);
 		lineClipCohSuth(winMin, winMax, p1, p2);
+		lineClipCohSuth(winMin, winMax, p3, p4);
+		lineClipCohSuth(winMin, winMax, p5, p6);
+		lineClipCohSuth(winMin, winMax, p7, p8);
 	}
 	if (key == 27) {
 		exit(0);
@@ -204,6 +210,12 @@ void display()
 	glColor3f(0.0, 0.0, 1.0);
 	glVertex2f(50, 50);
 	glVertex2f(500, 500);
+	glVertex2f(110, 100);
+	glVertex2f(200, 100);
+	glVertex2f(50, 100);
+	glVertex2f(80, 150);
+	glVertex2f(120, 200);
+	glVertex2f(240, 230);
 	glEnd();
 
 	glFlush();
